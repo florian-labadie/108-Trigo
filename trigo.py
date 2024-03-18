@@ -1,11 +1,18 @@
-import sys
+def exp(n):
+    return 0
 
-args = sys.argv[1:]
+def cos(n):
+    return 0
 
-def parse_args():
-    tab = []
-    if (len(args) == 0 or len(args) % 2 != 0):
-        return 84
-    for i in range(len(args)):
-        tab.append([int(x) for x in args[i].split('*')])
-    return tab
+def sin(n):
+    return 0
+
+def cosh(n):
+    return 0
+
+def sinh(n):
+    return 0
+
+def trigo(args):
+    
+    return 0

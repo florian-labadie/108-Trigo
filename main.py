@@ -1,4 +1,4 @@
-from trigo import parse_args
+from parse_args import parse_args
 from trigo import trigo
 
 if __name__ == '__main__':
