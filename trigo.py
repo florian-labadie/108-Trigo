@@ -1,7 +1,9 @@
-def exp(n):
+def exp(matrix):
+    
     return 0
 
 def cos(n):
+    
     return 0
 
 def sin(n):
@@ -13,6 +15,15 @@ def cosh(n):
 def sinh(n):
     return 0
 
-def trigo(args):
-    
+def trigo(function, matrix):
+    if (function == "COS"):
+        cos(matrix)
+    elif (function == "SIN"):
+        sin(matrix)
+    elif (function == "COSH"):
+        cosh(matrix)
+    elif (function == "SINH"):
+        sinh(matrix)
+    elif (function == "EXP"):
+        exp(matrix)
     return 0
