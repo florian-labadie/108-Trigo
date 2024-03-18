@@ -3,8 +3,8 @@ from trigo import trigo
 
 if __name__ == '__main__':
     try:
-        args = parse_args()
-        if args == 84:
+        function, args = parse_args()
+        if function == None or args == 84:
             exit(84)
         if trigo(args) == 84:
             exit(84)
