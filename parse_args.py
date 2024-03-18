@@ -17,5 +17,5 @@ def parse_args():
     size = sqrt(len(args))
     if size - int(size) != 0:
         return 84
-    matrix = [[int(args[j]) for j in range(i, i + int(size))] for i in range(0, len(args), int(size))]
+    matrix = [[float(args[j]) for j in range(i, i + int(size))] for i in range(0, len(args), int(size))]
     return check_fct(function), matrix
