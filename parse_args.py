@@ -1,6 +1,8 @@
 import sys
 from math import sqrt
 
+if len(sys.argv) < 3:
+    exit(84)
 function = sys.argv[1]
 args = sys.argv[2:]
 
@@ -13,9 +15,9 @@ def check_fct(fct):
 
 def parse_args():
     if function == None or args == None:
-        return 84
+        return None, 84
     size = sqrt(len(args))
     if size - int(size) != 0:
-        return 84
+        return None, 84
     matrix = [[float(args[j]) for j in range(i, i + int(size))] for i in range(0, len(args), int(size))]
     return check_fct(function), matrix
