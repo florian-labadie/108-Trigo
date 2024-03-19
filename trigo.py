@@ -1,3 +1,5 @@
+import math
+
 def create_identity(n):
     identity = [[0 for _ in range(n)] for _ in range(n)]
     for i in range(n):
@@ -9,6 +11,9 @@ def matrix_divide(matrix, n):
 
 def matrix_sum(matrix, matrix2):
     return [[matrix[i][j] + matrix2[i][j] for j in range(len(matrix[0]))] for i in range(len(matrix))]
+
+def matrix_sub(matrix, matrix2):
+    return [[matrix[i][j] - matrix2[i][j] for j in range(len(matrix[0]))] for i in range(len(matrix))]
 
 def mat_mul(matrix, matrix2):
     return [[sum(matrix[i][k] * matrix2[k][j] for k in range(len(matrix2))) for j in range(len(matrix2[0]))] for i in range(len(matrix))]
@@ -25,7 +30,19 @@ def exp(matrix):
     return result
 
 def cos(matrix):
-    return 0
+    new_term, result = create_identity(len(matrix)), create_identity(len(matrix))
+    precision, k = 1.0, 1
+    while precision >= 0.001:
+        for _ in range(2):
+            new_term = mat_mul(new_term, matrix)
+        new_term = matrix_divide(new_term, k * 2 * (k * 2 - 1))
+        if k % 2 == 0:
+            result = matrix_sum(result, new_term)
+        else:
+            result = matrix_sub(result, new_term)
+        precision = sum(abs(x) for row in new_term for x in row)
+        k += 1
+    return result
 
 def sin(matrix):
     return 0
