@@ -38,20 +38,55 @@ def cos(matrix):
         new_term = matrix_divide(new_term, k * 2 * (k * 2 - 1))
         if k % 2 == 0:
             result = matrix_sum(result, new_term)
+            precision = sum(abs(x) for line in new_term for x in line)
         else:
             result = matrix_sub(result, new_term)
-        precision = sum(abs(x) for row in new_term for x in row)
         k += 1
     return result
 
 def sin(matrix):
-    return 0
+    new_term, result = create_identity(len(matrix)), create_identity(len(matrix))
+    precision, k = 1.0, 1
+    while precision >= 0.001:
+        for _ in range(2):
+            new_term = mat_mul(new_term, matrix)
+        new_term = matrix_divide(new_term, k * 2 * (k * 2 - 1))
+        if k % 2 == 1:
+            result = matrix_sub(result, new_term)
+            precision = sum(abs(x) for line in new_term for x in line)
+        else:
+            result = matrix_sum(result, new_term)
+        k += 1
+    return result
 
 def cosh(matrix):
-    return 0
+    new_term, result = create_identity(len(matrix)), create_identity(len(matrix))
+    precision, k = 1.0, 1
+    while precision >= 0.001:
+        for _ in range(2):
+            new_term = mat_mul(new_term, matrix)
+        new_term = matrix_divide(new_term, k * 2 * (k * 2 - 1))
+        if k % 2 == 0:
+            result = matrix_sum(result, new_term)
+            precision = sum(abs(x) for line in new_term for x in line)
+        else:
+            result = matrix_sub(result, new_term)
+        k += 1
+    return result
 
 def sinh(matrix):
-    return 0
+    new_term, result = create_identity(len(matrix)), create_identity(len(matrix))
+    precision, k = 1.0, 1
+    while precision >= 0.001:
+        for _ in range(2 + 1):
+            new_term = mat_mul(new_term, matrix)
+        new_term = matrix_divide(new_term, k * 2 * (k * 2 - 1) + 1)
+        if k % 2 == 1:
+            result = matrix_sum(result, new_term)
+        else:
+            precision = sum(abs(x) for line in new_term for x in line)
+        k += 1
+    return result
 
 def trigo(function, matrix):
     if (function == "COS"):
