@@ -72,6 +72,7 @@ def cosh(matrix):
         if k % 2 == 0:
             result = matrix_sum(result, new_term)
         else:
+            result = matrix_sum(result, new_term)
             precision = sum(abs(x) for line in new_term for x in line)
         k += 1
     return result
