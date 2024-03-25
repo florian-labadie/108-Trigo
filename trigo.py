@@ -81,7 +81,7 @@ def sinh(matrix):
     new_term, result = matrix, matrix
     precision, k = 1.0, 1
     while precision >= 0.001:
-        for _ in range(2 + 1):
+        for _ in range(2):
             new_term = mat_mul(new_term, matrix)
         new_term = matrix_divide(new_term, k * 2 * (k * 2 + 1))
         if k % 2 == 1:
