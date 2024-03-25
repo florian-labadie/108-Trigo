@@ -6,6 +6,9 @@ def create_identity(n):
         identity[i][i] = 1
     return identity
 
+def create_empty_matrix(n):
+    return [[0 for _ in range(n)] for _ in range(n)]
+
 def matrix_divide(matrix, n):
     return [[matrix[i][j] / n for j in range(len(matrix[0]))] for i in range(len(matrix))]
 
@@ -45,12 +48,12 @@ def cos(matrix):
     return result
 
 def sin(matrix):
-    new_term, result = create_identity(len(matrix)), create_identity(len(matrix))
+    new_term, result = matrix, matrix
     precision, k = 1.0, 1
     while precision >= 0.001:
         for _ in range(2):
             new_term = mat_mul(new_term, matrix)
-        new_term = matrix_divide(new_term, k * 2 * (k * 2 - 1))
+        new_term = matrix_divide(new_term, k * 2 * (k * 2 + 1))
         if k % 2 == 1:
             result = matrix_sub(result, new_term)
             precision = sum(abs(x) for line in new_term for x in line)
@@ -68,22 +71,22 @@ def cosh(matrix):
         new_term = matrix_divide(new_term, k * 2 * (k * 2 - 1))
         if k % 2 == 0:
             result = matrix_sum(result, new_term)
-            precision = sum(abs(x) for line in new_term for x in line)
         else:
-            result = matrix_sub(result, new_term)
+            precision = sum(abs(x) for line in new_term for x in line)
         k += 1
     return result
 
 def sinh(matrix):
-    new_term, result = create_identity(len(matrix)), create_identity(len(matrix))
+    new_term, result = matrix, matrix
     precision, k = 1.0, 1
     while precision >= 0.001:
         for _ in range(2 + 1):
             new_term = mat_mul(new_term, matrix)
-        new_term = matrix_divide(new_term, k * 2 * (k * 2 - 1) + 1)
+        new_term = matrix_divide(new_term, k * 2 * (k * 2 + 1))
         if k % 2 == 1:
             result = matrix_sum(result, new_term)
         else:
+            result = matrix_sum(result, new_term)
             precision = sum(abs(x) for line in new_term for x in line)
         k += 1
     return result
