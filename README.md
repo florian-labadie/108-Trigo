@@ -126,6 +126,6 @@ Sortie attendue :
 ## Contributeurs
 
 - Labadie Florian ([GitHub](https://github.com/florian-labadie))
-- Axel Lavrador ([GitHub)](https://github.com/florian-labadie))
+- Axel Lavrador ([GitHub)](https://github.com/Oursegamin))
 
 ---
