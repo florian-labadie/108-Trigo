@@ -37,7 +37,7 @@ De même, d'autres fonctions comme les fonctions trigonométriques et hyperboliq
 Clonez le dépôt Git :
 
 ```bash
-git clone https://github.com/votre-utilisateur/trigo-matrices.git
+git clone https://git@github.com:florian-labadie/108-Trigo.git
 cd trigo-matrices
 ```
 
@@ -125,7 +125,7 @@ Sortie attendue :
 
 ## Contributeurs
 
-- Nom du Contributeur 1 ([GitHub](https://github.com/contributeur1))
-- Nom du Contributeur 2 ([GitHub](https://github.com/contributeur2))
+- Labadie Florian ([GitHub](https://github.com/florian-labadie))
+- Axel Lavrador ([GitHub)](https://github.com/florian-labadie))
 
 ---
